@@ -12,13 +12,15 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import { KnowledgeComponent } from './knowledge/knowledge.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { KnowlegdeFormComponent } from './knowlegde-form/knowlegde-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     KnowledgeComponent,
-    NavbarComponent
+    NavbarComponent,
+    KnowlegdeFormComponent
   ],
   imports: [
     BrowserModule,
