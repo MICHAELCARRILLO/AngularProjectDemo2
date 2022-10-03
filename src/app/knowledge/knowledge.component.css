@@ -1,0 +1,42 @@
+mat-grid-tile {
+  background: lightblue;
+}
+
+.example-card {
+  background-size: cover;
+}
+
+.example-header-image {
+  background-size: cover;
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+}
+
+.card-style{
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.spacer{
+  padding:2rem;
+}
+
+.imgz{
+  max-width: 200px;
+}
+
+.card-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.card-text{
+  padding: 3rem;
+}
