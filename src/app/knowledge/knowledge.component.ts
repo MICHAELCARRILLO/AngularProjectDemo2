@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-  url: string;
-}
+import { KnowledgeService } from './services/knowledge.service';
 
 @Component({
   selector: 'app-knowledge',
@@ -15,19 +8,14 @@ export interface Tile {
 })
 export class KnowledgeComponent implements OnInit {
 
-  constructor() { }
+  knowledges: Array<any> = [];
+
+  constructor(private service: KnowledgeService) { }
 
   ngOnInit(): void {
-    console.log(" we are here beatch");
-  }
-
-  mainColor = '#FFFFFF';
-
-  tiles: Tile[] = [
-    {text: 'One', cols: 3, rows: 1, color: this.mainColor, url:'https://material.angular.io/assets/img/examples/shiba1.jpg'},
-    {text: 'Two', cols: 1, rows: 2, color: this.mainColor, url:'https://material.angular.io/assets/img/examples/shiba1.jpg'},
-    {text: 'Three', cols: 1, rows: 1, color: this.mainColor, url:'https://material.angular.io/assets/img/examples/shiba1.jpg'},
-    {text: 'Four', cols: 2, rows: 1, color: this.mainColor, url:'https://material.angular.io/assets/img/examples/shiba1.jpg'},
-  ];
-
+    this.service.getAll().subscribe((response:any) => {
+      this.knowledges = response;
+      console.log(this.knowledges);
+    });
+  }  
 }

@@ -1,1 +1,62 @@
-<p>knowlegde-form works!</p>
+<div class="form-container">
+  <mat-card>
+    <mat-card-header class="alignment">
+      <mat-card-title-group class="title-group">
+        <mat-card-title>
+          Knowledge Form
+        </mat-card-title>
+        <mat-card-subtitle>Resgiter a new Knowledge</mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+
+    <form [formGroup]="knowledgeForm" (submit)="submitForm()" class="form-inner-container">
+      <mat-card-content class="form-knowledge-content">
+        <!--avatar Img -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Avatar Url</mat-label>
+          <input matInput type="text" formControlName="avatarUrl" placeholder="https://imageneswrold.com/gatio_en_4k"/>
+          <mat-error *ngIf="avatarUrl?.errors?.['required']" >Avatar Image is <strong>required</strong> </mat-error>
+        </mat-form-field>
+
+        <!--title -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Title</mat-label>
+          <input matInput type="text" formControlName="title" placeholder="Why food is important?"/>
+          <mat-error *ngIf="title?.errors?.['required']" >Title is <strong>required</strong> </mat-error>
+          <mat-error *ngIf="title?.errors?.['maxlength'] && !title?.errors?.['required']"> title must be no longer than <strong> 60</strong> characters</mat-error>
+        </mat-form-field>
+
+        <!-- subtitle -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Subtitle</mat-label>
+          <input matInput type="text" formControlName="subtitle" placeholder="more than 100 million need food"/>
+          <mat-error *ngIf="subtitle?.errors?.['required']" >Subtitle is <strong>required</strong> </mat-error>
+        </mat-form-field>
+
+        <!-- urlToImage -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Url To Image</mat-label>
+          <input matInput type="text" formControlName="urlToImage" placeholder="https://imageneswrold.com/gatio_en_4k"/>
+          <mat-error *ngIf="urlToImage?.errors?.['required']" >Url To Image is <strong>required</strong> </mat-error>
+        </mat-form-field>
+
+        <!-- content -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Content</mat-label>
+          <textarea matInput type="text" formControlName="content" placeholder="People wordwide need food to survide, actually there no more than 5 billion of ..."></textarea>
+          <mat-error *ngIf="content?.errors?.['required']" > Content is <strong>required</strong> </mat-error>
+          <mat-error *ngIf="content?.errors?.['maxlength'] && !content?.errors?.['required']"> Content must be no longer than <strong> 200</strong> characters</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+
+      
+    </form>
+    <mat-card-actions class="alignment">
+      <button  routerLink="/knowledge" mat-button mat-raised-button color="primary" (click)="Add()" [disabled]="!knowledgeForm.valid">
+        Save
+      </button>
+      <button routerLink="/knowledge" mat-raised-button color="accent">Cancel</button>
+    </mat-card-actions>
+
+  </mat-card>
+</div>
